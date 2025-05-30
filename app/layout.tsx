@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 
-
 import "@/app/globals.css"
 import { danaFont } from "@/fonts/font"
 
@@ -19,9 +18,7 @@ export default function RootLayout({
       lang="fa"
       dir="rtl"
     >
-      <body className={`${danaFont.className} antialiased`}>
-        {children}
-      </body>
+      <body className={`${danaFont.className} antialiased`}>{children}</body>
     </html>
   )
 }

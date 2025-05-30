@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 const NotFound = () => {
   return (
     <main className="flex h-full items-center justify-center text-gray-700">
