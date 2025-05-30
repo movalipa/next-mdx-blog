@@ -1,3 +1,3 @@
-# Hotel Management Dashboard
+# next-js blog | markdown to static html pages
 
-For now it's just a hope
+something crazy is gonna happen
