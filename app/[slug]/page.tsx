@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import { MDXRemote } from "next-mdx-remote/rsc"
 
-import { getPostSlugs, getPostBySlug } from "@/lib/mdx"
+import { getPostBySlug, getPostSlugs } from "@/lib/mdx"
 
 export async function generateStaticParams() {
   const slugs = getPostSlugs()
@@ -11,10 +11,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const p = await params
   const { meta } = await getPostBySlug(p.slug)
+
   return {
     title: meta.title,
     description: meta.description,
@@ -24,7 +25,7 @@ export async function generateMetadata({
 export default async function BlogPage({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
   const p = await params
   const { content, meta } = await getPostBySlug(p.slug)
